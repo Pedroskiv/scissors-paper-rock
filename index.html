@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- displays site properly based on user's device -->
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/styles.css">
+
+	<title>Rock, Paper, Scissors</title>
+</head>
+
+<body>
+	<div class="container-fluid mt-4">
+		<!-- Score -->
+		<div class="row mb-5">
+			<div class="col-10 col-lg-6 mx-auto d-flex justify-content-between align-items-center" id="score-box">
+				<div class="words">
+					<img src="images/logo-bonus.svg" alt="logo" />
+				</div>
+				<div class="score">
+					<span>SCORE</span>
+					<span id="score-counter">0</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Figuras -->
+		<div class="d-nones" id="main-shapes">
+			<div class="pentagon">
+				<img src="images/bg-pentagon.svg" alt="pentagon" />
+			</div>
+			<div class="pickable-shape circle-border scissors" data-target="scissors">
+				<div class="circle-content">
+					<img src="images/icon-scissors.svg" alt="scissors" />
+				</div>
+			</div>
+			<div class="pickable-shape circle-border paper" data-target="paper">
+				<div class="circle-content">
+					<img src="images/icon-paper.svg" alt="paper" />
+				</div>
+			</div>
+			<div class="pickable-shape circle-border rock" data-target="rock">
+				<div class="circle-content">
+					<img src="images/icon-rock.svg" alt="rock" />
+				</div>
+			</div>
+			<div class="pickable-shape circle-border lizard" data-target="lizard">
+				<div class="circle-content">
+					<img src="images/icon-lizard.svg" alt="lizard" />
+				</div>
+			</div>
+			<div class="pickable-shape circle-border spock" data-target="spock">
+				<div class="circle-content">
+					<img src="images/icon-spock.svg" alt="spock" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Figura seleccionada para jugar contra la máquina y figura de la máquina -->
+	<div class="container d-none" id="versus-shapes">
+		<div class="row d-none d-sm-flex mb-5 pick-text">
+			<div class="col col-sm-6">
+				<span>YOU PICKED</span>
+			</div>
+			<div class="col col-sm-6">
+				<span>THE HOUSE PICKED</span>
+			</div>
+		</div>
+
+		<!-- Figuras -->
+		<div class="row">
+			<!-- Selección del usuario -->
+			<div class="col col-sm-6 d-flex justify-content-center align-self-center">
+				<div>
+					<div class="circle-content">
+						<img id="picked-shape" alt="-"/>
+					</div>
+				</div>
+			</div>
+
+			
+			<!-- Selección de la máquina -->
+			<div class="col col-sm-6 d-flex justify-content-center align-self-center">
+				<div class="d-none">
+					<div class="circle-content">
+						<img id="pc-shape" alt="-"/>
+					</div>
+				</div>
+				<div class="empty-circle"></div>
+			</div>
+		</div>
+		
+		<div class="row d-sm-none d-flex mt-2 pick-text">
+			<div class="col col-sm-6">
+				<span>YOU PICKED</span>
+			</div>
+			<div class="col col-sm-6">
+				<span>THE HOUSE PICKED</span>
+			</div>
+		</div>
+
+		<!-- Texto informativo y botón Play Again -->
+		<div class="col-12 d-none" id="info-round">
+			<span>DRAW</span>
+			<button class="btn" id="btn-play-again">
+				PLAY AGAIN
+			</button>
+		</div>
+	</div>
+
+	<!-- Botón reglas -->
+	<footer class="footer fixed-bottom">
+		<div class="row p-3">
+			<div class="col-12 d-flex justify-content-center justify-content-sm-end">
+				<button class="btn" id="btn-rules" data-toggle="modal" data-target="#modalRules">
+					RULES
+				</button>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Modal reglas -->
+	<div class="modal fade" tabindex="-1" id="modalRules">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body">
+
+					<!-- Se muestra a partir de pantallas pequeñas -->
+					<div class="normal-content">
+						<div class="row header px-3">
+							<div class="col d-flex justify-content-between align-items-center">
+								<span class="rules-title">RULES</span>
+								<img class="rules-close" src="images/x.svg" alt="close rules" data-dismiss="modal">
+							</div>
+						</div>
+						<div class="row mx-2 my-4">
+							<div class="col">
+								<img class="rules-img" src="images/image-rules-bonus.svg" alt="rules">
+							</div>
+						</div>
+					</div>
+
+					<!-- Se muestra en pantallas extra pequeñas -->
+					<div class="sm-content">
+						<span class="rules-title mt-5">RULES</span>
+						<img class="rules-img" src="images/image-rules-bonus.svg" alt="rules">
+						<img class="rules-close mb-5" src="images/x.svg" alt="close rules" data-dismiss="modal">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+	<!-- Custom JS -->
+	<script src="js/index.js"></script>
+</body>
+
+</html>

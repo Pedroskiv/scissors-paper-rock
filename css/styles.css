@@ -1,0 +1,319 @@
+body {
+    background: radial-gradient(at top,hsl(214, 47%, 23%),hsl(237, 49%, 15%)) no-repeat center center fixed;
+    background-size: cover;
+
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: #fff;
+}
+/* Score */
+#score-box {
+    border: hsl(217, 16%, 45%) solid 3px;
+    border-radius: 15px;
+    padding: 1em 1.5em;
+}
+.score {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: 2px;
+
+    padding: 1em 3em;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #F9F9F9;
+    color: hsl(229, 64%, 46%);
+
+}
+#score-counter {
+    font-size: 4rem;
+    color: hsl(229, 25%, 31%);
+}
+
+/* Figuras */
+.circle-border {
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.circle-content {
+    background-color: #fff;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    box-shadow: inset 0px 5px 2px #BABFD0;
+}
+.circle-border.lg {
+    height: 200px;
+    width: 200px;
+}
+.circle-border.lg > .circle-content {
+    height: 160px;
+    width: 160px;
+}
+.circle-border.lg > .circle-content img {
+    width: 50%;
+}
+.empty-circle {
+    background-color: #192845;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+}
+.pentagon {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 15%);
+}
+.scissors {
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: inset 0px -5px 2px #C76D1D;
+}
+#main-shapes .scissors{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -5%);
+}
+.paper {
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: inset 0px -5px 2px #2844CA;
+}
+#main-shapes .paper {
+    position: absolute;
+    left: 50%;
+    transform: translate(50%, 70%);
+}
+.rock {
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: inset 0px -5px 2px #9E1633;
+
+}
+#main-shapes .rock {
+    position: absolute;
+    left: 50%;
+    transform: translate(10%, 190%);
+}
+.lizard {
+    background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: inset 0px -5px 2px #5F37AA;
+
+}
+#main-shapes .lizard {
+    position: absolute;
+    left: 50%;
+    transform: translate(-120%, 190%);
+}
+.spock {
+    background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: inset 0px -5px 2px #2D8DAB;
+
+}
+#main-shapes .spock {
+    position: absolute;
+    left: 50%;
+    transform: translate(-150%, 70%);
+}
+
+/* Paso 2, seleccionar figura */
+#versus-shapes {
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+#versus-shapes .pick-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Reglas */
+#btn-rules {
+    padding: 0.5em 3em;
+
+    background: transparent;
+    border: hsl(217, 16%, 45%) 2px solid;
+    border-radius: 15px;
+    
+    font-size: large;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    color: #fff;
+}
+#modalRules .modal-content {
+    width: auto;
+    margin: auto;
+    border-radius: 10px;
+}
+#modalRules .rules-title {
+    font-size: 2rem;
+    color: hsl(229, 25%, 31%);
+    font-weight: bolder;
+}
+#modalRules .rules-close {
+    width: 2rem;
+    cursor: pointer;
+}
+
+/* Botón Play Again y texto informativo */
+#info-round {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#info-round span {
+    font-size: 4rem;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+#btn-play-again {
+    background-color: #F8F8F8;
+    color: hsl(229, 25%, 31%);
+    padding: 0.5em 3em;
+    font-size: large;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+.win-gradient {
+    box-shadow: 0px 0px 128px 32px rgb(102 102 102);
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    /* Paso 2: Escoger figura */
+    #versus-shapes .pick-text {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+    /* Play Again */
+    #info-round {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+    }
+}
+@media (max-width: 600px) {
+    /* Score y figuras */
+    #score-box {
+        padding: 1em;
+    }
+    #score-box .words img {
+        width: 70px;
+    }
+    #score-box .score {
+        font-size: 0.7rem;
+        padding: 1em 2em;
+    }
+    #score-box #score-counter {
+        font-size: 3rem;
+    }
+
+    .pentagon img {
+        width: 300px;
+    }
+    .circle-content img {
+        width: 50px;
+    }
+    .circle-border {
+        height: 120px;
+        width: 120px;
+    }
+    .circle-content {
+        height: 80px;
+        width: 80px;
+    }
+
+    .circle-border.lg {
+        height: 130px;
+        width: 130px;
+    }
+    .circle-border.lg > .circle-content {
+        height: 90px;
+        width: 90px;
+    }
+    .circle-border.lg > .circle-content img {
+        width: 40%;
+    }
+    .empty-circle {
+        background-color: #192845;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+}
+/* Figuras */
+@media (max-width: 375px) {
+    .pentagon img {
+        width: 200px;
+    }
+    .circle-content img {
+        width: 30px;
+    }
+    .circle-border {
+        height: 100px;
+        width: 100px;
+    }
+    .circle-content {
+        height: 70px;
+        width: 70px;
+    }
+}
+
+/* Modal reglas */
+@media (max-width: 430px) {
+    #modalRules .modal-dialog {
+        margin: 0;
+    }
+    #modalRules .normal-content {
+        display: none;
+    }
+    #modalRules .sm-content {
+        display: flex;
+        margin: 0;
+        height: calc(100vh - 10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #modalRules .modal-content {
+        padding: 0;
+        height: 100vh;
+        width: 100%;
+    }
+    #modalRules .modal-body {
+        padding: 0;
+    }
+    #modalRules .rules-img {
+        width: 80%;
+    }
+}
+@media (min-width: 430px) {
+    #modalRules .normal-content {
+        display: block;
+    } 
+    #modalRules .sm-content {
+        display: none;
+    }
+}
