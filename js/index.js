@@ -3,7 +3,7 @@ let pcPick = "";
 let userPoints = 0;
 
 $( document ).ready(function() {
-    // $("#modalRules").modal("show");
+    $("#modalRules").modal("show");
 });
 
 // Seleccionar figura del 
